@@ -28,52 +28,46 @@ const calculationFunctions = {
 function calculateResult() {
     let total = 0;
     
-    // Obelisk
+    // Obelisk (1개 입력)
     const obeliskInput = document.getElementById('obelisk-input');
     if (obeliskInput) {
         const level = parseInt(obeliskInput.value) || 0;
         total += calculationFunctions.obelisk(level);
     }
     
-    // Altar - 5개 입력 필드의 합
-    let altarTotal = 0;
+    // Altar (5개 입력 - 모두 합산)
     for (let i = 1; i <= 5; i++) {
         const altarInput = document.getElementById(`altar-input-${i}`);
         if (altarInput) {
             const level = parseInt(altarInput.value) || 0;
-            altarTotal += level;
+            total += calculationFunctions.altar(level);
         }
     }
-    total += calculationFunctions.altar(altarTotal);
     
-    // War Fort
+    // War Fort (1개 입력)
     const warfortInput = document.getElementById('warfort-input');
     if (warfortInput) {
         const level = parseInt(warfortInput.value) || 0;
         total += calculationFunctions.warfort(level);
     }
     
-    // Statue of Carnage - 2개 입력 필드의 합
-    let carnageTotal = 0;
+    // Statue of Carnage (2개 입력 - 모두 합산)
     for (let i = 1; i <= 2; i++) {
         const carnageInput = document.getElementById(`statueofcarnage-input-${i}`);
         if (carnageInput) {
             const level = parseInt(carnageInput.value) || 0;
-            carnageTotal += level;
+            total += calculationFunctions.statueofcarnage(level);
         }
     }
-    total += calculationFunctions.statueofcarnage(carnageTotal);
     
-    // Statue of Guardian - 2개 입력 필드의 합
-    let guardianTotal = 0;
+    // Statue of Guardian (2개 입력 - 모두 합산)
     for (let i = 1; i <= 2; i++) {
         const guardianInput = document.getElementById(`statueofguardian-input-${i}`);
         if (guardianInput) {
             const level = parseInt(guardianInput.value) || 0;
-            guardianTotal += level;
+            total += calculationFunctions.statueofguardian(level);
         }
     }
-    total += calculationFunctions.statueofguardian(guardianTotal);
     
     // 결과 표시
     const resultInput = document.getElementById('result');
