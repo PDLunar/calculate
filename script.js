@@ -45,7 +45,7 @@ function calculateResult() {
 
 // 모든 레벨 입력 필드에 이벤트 리스너 추가
 document.addEventListener('DOMContentLoaded', function() {
-    const inputs = document.querySelectorAll('.level-input');
+    const inputs = document.querySelectorAll('.level-input.overlay-input');
     
     inputs.forEach(input => {
         // 입력 시 실시간 계산
@@ -67,9 +67,33 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // 이미지 로드 후 입력 필드 위치 조정
+    const bgImage = document.getElementById('bgImage');
+    if (bgImage.complete) {
+        adjustInputPositions();
+    } else {
+        bgImage.addEventListener('load', adjustInputPositions);
+    }
+    
+    // 창 크기 변경 시 위치 재조정
+    window.addEventListener('resize', adjustInputPositions);
+    
     // 초기 계산
     calculateResult();
 });
+
+// 이미지 크기에 맞춰 입력 필드 위치 조정
+function adjustInputPositions() {
+    const bgImage = document.getElementById('bgImage');
+    
+    if (!bgImage.complete || bgImage.naturalWidth === 0) {
+        return;
+    }
+    
+    // 이미지가 로드되면 입력 필드 크기와 위치를 조정
+    // 퍼센트 기반으로 설정되어 있어 자동으로 조정됨
+    // 필요시 여기서 추가 미세 조정 가능
+}
 
 // 계산 함수를 외부에서 수정할 수 있도록 export
 if (typeof module !== 'undefined' && module.exports) {
