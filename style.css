@@ -44,13 +44,13 @@ body {
     background: #f5e6d3;
     border: 2px solid #d4a574;
     border-radius: 8px;
-    padding: 10px;
+    padding: 0;
     width: 200px;
     min-height: 250px;
-    display: flex;
-    flex-direction: column;
+    display: block;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     transition: transform 0.2s, box-shadow 0.2s;
+    overflow: hidden;
 }
 
 .card:hover {
@@ -61,84 +61,149 @@ body {
 .card-image {
     width: 100%;
     height: auto;
-    flex: 1;
+    display: block;
     object-fit: contain;
-    border-radius: 4px;
 }
 
 .card-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 8px;
     position: absolute;
-    top: 10px;
-    left: 10px;
     z-index: 10;
 }
 
+/* 기본 입력 필드 스타일 - 이미지 위에 오버레이 */
 .level-input {
-    width: 50px;
-    padding: 4px 6px;
-    border: 2px solid #d4a574;
-    border-radius: 4px;
-    background: white;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
     color: #000;
-    font-size: 0.9em;
     text-align: center;
     font-weight: bold;
+    padding: 2px 4px;
+    font-size: 0.9em;
     transition: border-color 0.2s, box-shadow 0.2s;
+    z-index: 10;
 }
 
 .level-input:focus {
     outline: none;
-    border-color: #b8860b;
-    box-shadow: 0 0 5px rgba(184, 134, 11, 0.3);
+    border-color: #4a90e2;
+    box-shadow: 0 0 3px rgba(74, 144, 226, 0.5);
+    background: white;
 }
 
-/* Altar 카드 - 5개 박스 (상단 4개 작은 박스 가로 배치 + 아래 1개 큰 박스) */
-.altar-header {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 4px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: auto;
-    max-width: 160px;
+/* Obelisk - 상단 왼쪽에 1개 박스 */
+#obelisk-input {
+    top: 7%;
+    left: 8%;
+    width: 8%;
+    height: 4%;
+    min-width: 30px;
+    min-height: 20px;
 }
 
-.altar-input-small {
-    width: 30px;
-    height: 20px;
-    padding: 2px 4px;
-    font-size: 0.75em;
-    flex: 0 0 auto;
+/* Altar - 상단에 5개 박스 가로 배치 */
+#altar-input-1 {
+    top: 5%;
+    left: 15%;
+    width: 5%;
+    height: 3%;
+    min-width: 20px;
+    min-height: 15px;
 }
 
-.altar-input-main {
-    width: 50px;
-    padding: 4px 6px;
-    font-size: 0.9em;
-    flex: 0 0 auto;
-    margin-top: 2px;
+#altar-input-2 {
+    top: 5%;
+    left: 22%;
+    width: 5%;
+    height: 3%;
+    min-width: 20px;
+    min-height: 15px;
 }
 
-/* Statue 카드 - 2개 박스 (점으로 구분) */
+#altar-input-3 {
+    top: 5%;
+    left: 29%;
+    width: 5%;
+    height: 3%;
+    min-width: 20px;
+    min-height: 15px;
+}
+
+#altar-input-4 {
+    top: 5%;
+    left: 36%;
+    width: 5%;
+    height: 3%;
+    min-width: 20px;
+    min-height: 15px;
+}
+
+#altar-input-5 {
+    top: 5%;
+    left: 43%;
+    width: 5%;
+    height: 3%;
+    min-width: 20px;
+    min-height: 15px;
+}
+
+/* War Fort - 상단 왼쪽에 1개 박스 */
+#warfort-input {
+    top: 7%;
+    left: 8%;
+    width: 8%;
+    height: 4%;
+    min-width: 30px;
+    min-height: 20px;
+}
+
+/* Statue of Carnage - 상단 왼쪽에 2개 박스 */
+#statueofcarnage-input-1 {
+    top: 7%;
+    left: 8%;
+    width: 6%;
+    height: 3.5%;
+    min-width: 25px;
+    min-height: 18px;
+}
+
+#statueofcarnage-input-2 {
+    top: 7%;
+    left: 16%;
+    width: 6%;
+    height: 3.5%;
+    min-width: 25px;
+    min-height: 18px;
+}
+
+/* Statue of Guardian - 상단 왼쪽에 2개 박스 */
+#statueofguardian-input-1 {
+    top: 7%;
+    left: 8%;
+    width: 6%;
+    height: 3.5%;
+    min-width: 25px;
+    min-height: 18px;
+}
+
+#statueofguardian-input-2 {
+    top: 7%;
+    left: 16%;
+    width: 6%;
+    height: 3.5%;
+    min-width: 25px;
+    min-height: 18px;
+}
+
+/* Altar와 Statue의 헤더는 숨김 (개별 위치 사용) */
+.altar-header,
 .statue-header {
-    gap: 4px;
-}
-
-.statue-input {
-    width: 40px;
-    padding: 4px 6px;
-    font-size: 0.85em;
+    display: none;
 }
 
 .dot-separator {
-    color: #5a3a1f;
-    font-weight: bold;
-    font-size: 1.2em;
-    margin: 0 2px;
+    display: none;
 }
 
 /* 결과 섹션 */
