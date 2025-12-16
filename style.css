@@ -77,12 +77,6 @@ body {
     z-index: 10;
 }
 
-.level-label {
-    color: #5a3a1f;
-    font-weight: bold;
-    font-size: 1em;
-}
-
 .level-input {
     width: 50px;
     padding: 4px 6px;
@@ -102,15 +96,49 @@ body {
     box-shadow: 0 0 5px rgba(184, 134, 11, 0.3);
 }
 
-/* Altar 카드는 Lv. 없이 입력 필드만 */
-.card[data-item="altar"] .card-header {
+/* Altar 카드 - 5개 박스 (상단 4개 작은 박스 가로 배치 + 아래 1개 큰 박스) */
+.altar-header {
+    flex-wrap: wrap;
     justify-content: center;
+    gap: 4px;
     left: 50%;
     transform: translateX(-50%);
+    width: auto;
+    max-width: 160px;
 }
 
-.card[data-item="altar"] .level-input {
+.altar-input-small {
+    width: 30px;
+    height: 20px;
+    padding: 2px 4px;
+    font-size: 0.75em;
+    flex: 0 0 auto;
+}
+
+.altar-input-main {
+    width: 50px;
+    padding: 4px 6px;
+    font-size: 0.9em;
+    flex: 0 0 auto;
+    margin-top: 2px;
+}
+
+/* Statue 카드 - 2개 박스 (점으로 구분) */
+.statue-header {
+    gap: 4px;
+}
+
+.statue-input {
     width: 40px;
+    padding: 4px 6px;
+    font-size: 0.85em;
+}
+
+.dot-separator {
+    color: #5a3a1f;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 0 2px;
 }
 
 /* 결과 섹션 */

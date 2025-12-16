@@ -26,17 +26,54 @@ const calculationFunctions = {
 
 // 결과 계산 함수
 function calculateResult() {
-    const inputs = document.querySelectorAll('.level-input');
     let total = 0;
     
-    inputs.forEach(input => {
-        const item = input.getAttribute('data-item');
-        const level = parseInt(input.value) || 0;
-        
-        if (calculationFunctions[item]) {
-            total += calculationFunctions[item](level);
+    // Obelisk
+    const obeliskInput = document.getElementById('obelisk-input');
+    if (obeliskInput) {
+        const level = parseInt(obeliskInput.value) || 0;
+        total += calculationFunctions.obelisk(level);
+    }
+    
+    // Altar - 5개 입력 필드의 합
+    let altarTotal = 0;
+    for (let i = 1; i <= 5; i++) {
+        const altarInput = document.getElementById(`altar-input-${i}`);
+        if (altarInput) {
+            const level = parseInt(altarInput.value) || 0;
+            altarTotal += level;
         }
-    });
+    }
+    total += calculationFunctions.altar(altarTotal);
+    
+    // War Fort
+    const warfortInput = document.getElementById('warfort-input');
+    if (warfortInput) {
+        const level = parseInt(warfortInput.value) || 0;
+        total += calculationFunctions.warfort(level);
+    }
+    
+    // Statue of Carnage - 2개 입력 필드의 합
+    let carnageTotal = 0;
+    for (let i = 1; i <= 2; i++) {
+        const carnageInput = document.getElementById(`statueofcarnage-input-${i}`);
+        if (carnageInput) {
+            const level = parseInt(carnageInput.value) || 0;
+            carnageTotal += level;
+        }
+    }
+    total += calculationFunctions.statueofcarnage(carnageTotal);
+    
+    // Statue of Guardian - 2개 입력 필드의 합
+    let guardianTotal = 0;
+    for (let i = 1; i <= 2; i++) {
+        const guardianInput = document.getElementById(`statueofguardian-input-${i}`);
+        if (guardianInput) {
+            const level = parseInt(guardianInput.value) || 0;
+            guardianTotal += level;
+        }
+    }
+    total += calculationFunctions.statueofguardian(guardianTotal);
     
     // 결과 표시
     const resultInput = document.getElementById('result');
