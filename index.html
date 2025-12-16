@@ -1,37 +1,88 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>간단 계산기</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레벨 계산기</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="calculator">
-    <input type="text" id="display" disabled>
-    <div class="buttons">
-      <button onclick="clearDisplay()">C</button>
-      <button onclick="appendValue('7')">7</button>
-      <button onclick="appendValue('8')">8</button>
-      <button onclick="appendValue('9')">9</button>
-      <button onclick="appendValue('/')">/</button>
-
-      <button onclick="appendValue('4')">4</button>
-      <button onclick="appendValue('5')">5</button>
-      <button onclick="appendValue('6')">6</button>
-      <button onclick="appendValue('*')">*</button>
-
-      <button onclick="appendValue('1')">1</button>
-      <button onclick="appendValue('2')">2</button>
-      <button onclick="appendValue('3')">3</button>
-      <button onclick="appendValue('-')">-</button>
-
-      <button onclick="appendValue('0')">0</button>
-      <button onclick="appendValue('.')">.</button>
-      <button onclick="calculate()">=</button>
-      <button onclick="appendValue('+')">+</button>
+    <div class="container">
+        <h1>레벨 계산기</h1>
+        
+        <div class="cards-container">
+            <!-- Top Row -->
+            <div class="card-row">
+                <div class="card" data-item="obelisk">
+                    <div class="card-header">
+                        <span class="level-label">Lv.</span>
+                        <input type="number" class="level-input" min="0" value="0" data-item="obelisk">
+                    </div>
+                    <div class="card-content">
+                        <div class="item-name">Obelisk</div>
+                        <div class="item-image obelisk-img"></div>
+                    </div>
+                </div>
+                
+                <div class="card" data-item="altar">
+                    <div class="card-header">
+                        <span class="level-label">Lv.</span>
+                        <input type="number" class="level-input" min="0" value="0" data-item="altar">
+                    </div>
+                    <div class="card-content">
+                        <div class="item-name">Altar</div>
+                        <div class="item-image altar-img"></div>
+                    </div>
+                </div>
+                
+                <div class="card" data-item="warfort">
+                    <div class="card-header">
+                        <span class="level-label">Lv.</span>
+                        <input type="number" class="level-input" min="0" value="0" data-item="warfort">
+                    </div>
+                    <div class="card-content">
+                        <div class="item-name">War Fort</div>
+                        <div class="item-image warfort-img"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Row -->
+            <div class="card-row">
+                <div class="card" data-item="statueofcarnage">
+                    <div class="card-header">
+                        <span class="level-label">Lv.</span>
+                        <input type="number" class="level-input" min="0" value="0" data-item="statueofcarnage">
+                    </div>
+                    <div class="card-content">
+                        <div class="item-name">Statue of Carnage</div>
+                        <div class="item-image statueofcarnage-img"></div>
+                    </div>
+                </div>
+                
+                <div class="card" data-item="statueofguardian">
+                    <div class="card-header">
+                        <span class="level-label">Lv.</span>
+                        <input type="number" class="level-input" min="0" value="0" data-item="statueofguardian">
+                    </div>
+                    <div class="card-content">
+                        <div class="item-name">Statue of Guardian</div>
+                        <div class="item-image statueofguardian-img"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Result Section -->
+        <div class="result-section">
+            <div class="equals-sign">=</div>
+            <div class="result-box">
+                <input type="text" class="result-input" id="result" readonly value="0">
+            </div>
+        </div>
     </div>
-  </div>
-  <script src="script.js"></script>
+    
+    <script src="script.js"></script>
 </body>
 </html>
+
