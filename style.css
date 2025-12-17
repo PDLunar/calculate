@@ -102,7 +102,7 @@ body {
 }
 
 .altar-inputs .level-input {
-    width: 50px;
+    width: 60px;
     height: 28px;
     font-size: 0.85em;
 }
@@ -113,7 +113,7 @@ body {
 }
 
 .statue-inputs .level-input {
-    width: 50px;
+    width: 60px;
     height: 30px;
 }
 
