@@ -1,26 +1,56 @@
-// 각 아이템별 계산 함수 정의
-// 필요에 따라 계산 로직을 수정할 수 있습니다
+// 각 아이템별 레벨-값 매핑 테이블
+const levelValueMap = {
+    altar: {
+        15: 500,
+        20: 500,
+        24: 800,
+        28: 1000,
+        30: 1000
+    },
+    obelisk: {
+        10: 500,
+        15: 500,
+        20: 1000
+    },
+    warfort: {
+        15: 1000,
+        20: 1000,
+        24: 1500,
+        28: 1500,
+        30: 2000
+    },
+    statueofcarnage: {
+        15: 1000,
+        20: 1000,
+        24: 1500,
+        28: 1500,
+        30: 2000
+    },
+    statueofguardian: {
+        15: 1000,
+        20: 1000,
+        24: 1500,
+        28: 1500,
+        30: 2000
+    }
+};
 
+// 각 아이템별 계산 함수 정의
 const calculationFunctions = {
     obelisk: (level) => {
-        // 예시: 레벨 * 10
-        return level * 10;
+        return levelValueMap.obelisk[level] || 0;
     },
     altar: (level) => {
-        // 예시: 레벨 * 15
-        return level * 15;
+        return levelValueMap.altar[level] || 0;
     },
     warfort: (level) => {
-        // 예시: 레벨 * 20
-        return level * 20;
+        return levelValueMap.warfort[level] || 0;
     },
     statueofcarnage: (level) => {
-        // 예시: 레벨 * 25
-        return level * 25;
+        return levelValueMap.statueofcarnage[level] || 0;
     },
     statueofguardian: (level) => {
-        // 예시: 레벨 * 30
-        return level * 30;
+        return levelValueMap.statueofguardian[level] || 0;
     }
 };
 
