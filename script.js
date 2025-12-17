@@ -35,22 +35,63 @@ const levelValueMap = {
     }
 };
 
-// 각 아이템별 계산 함수 정의
+// 각 아이템별 계산 함수 정의 (레벨 범위별 누적 계산)
 const calculationFunctions = {
     obelisk: (level) => {
-        return levelValueMap.obelisk[level] || 0;
+        if (level <= 0) return 0;
+        let total = 0;
+        const map = levelValueMap.obelisk;
+        // 입력된 레벨보다 작거나 같은 모든 레벨 구간의 값을 합산
+        Object.keys(map).sort((a, b) => parseInt(a) - parseInt(b)).forEach(key => {
+            if (parseInt(key) <= level) {
+                total += map[key];
+            }
+        });
+        return total;
     },
     altar: (level) => {
-        return levelValueMap.altar[level] || 0;
+        if (level <= 0) return 0;
+        let total = 0;
+        const map = levelValueMap.altar;
+        Object.keys(map).sort((a, b) => parseInt(a) - parseInt(b)).forEach(key => {
+            if (parseInt(key) <= level) {
+                total += map[key];
+            }
+        });
+        return total;
     },
     warfort: (level) => {
-        return levelValueMap.warfort[level] || 0;
+        if (level <= 0) return 0;
+        let total = 0;
+        const map = levelValueMap.warfort;
+        Object.keys(map).sort((a, b) => parseInt(a) - parseInt(b)).forEach(key => {
+            if (parseInt(key) <= level) {
+                total += map[key];
+            }
+        });
+        return total;
     },
     statueofcarnage: (level) => {
-        return levelValueMap.statueofcarnage[level] || 0;
+        if (level <= 0) return 0;
+        let total = 0;
+        const map = levelValueMap.statueofcarnage;
+        Object.keys(map).sort((a, b) => parseInt(a) - parseInt(b)).forEach(key => {
+            if (parseInt(key) <= level) {
+                total += map[key];
+            }
+        });
+        return total;
     },
     statueofguardian: (level) => {
-        return levelValueMap.statueofguardian[level] || 0;
+        if (level <= 0) return 0;
+        let total = 0;
+        const map = levelValueMap.statueofguardian;
+        Object.keys(map).sort((a, b) => parseInt(a) - parseInt(b)).forEach(key => {
+            if (parseInt(key) <= level) {
+                total += map[key];
+            }
+        });
+        return total;
     }
 };
 
