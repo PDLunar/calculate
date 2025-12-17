@@ -66,20 +66,27 @@ body {
     border-radius: 4px;
 }
 
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    padding: 5px 0;
+}
+
 .level-input {
-    position: absolute;
-    width: 25px;
-    height: 20px;
-    padding: 2px 4px;
-    border: 1px solid #d4a574;
-    border-radius: 2px;
+    width: 50px;
+    height: 30px;
+    padding: 4px 6px;
+    border: 2px solid #d4a574;
+    border-radius: 4px;
     background: white;
     color: #000;
-    font-size: 0.85em;
+    font-size: 0.9em;
     text-align: center;
     font-weight: bold;
     transition: border-color 0.2s, box-shadow 0.2s;
-    z-index: 10;
 }
 
 .level-input:focus {
@@ -88,64 +95,26 @@ body {
     box-shadow: 0 0 5px rgba(184, 134, 11, 0.3);
 }
 
-/* Obelisk 입력 박스 */
-.obelisk-input {
-    left: 87px;
-    top: 53.5px;
+/* Altar 입력 박스들 - 5개 가로 정렬 */
+.altar-inputs {
+    gap: 6px;
+    flex-wrap: wrap;
 }
 
-/* Altar 입력 박스들 - 5개 */
-#altar-input-1 {
-    left: 26px;
-    top: 53.5px;
+.altar-inputs .level-input {
+    width: 40px;
+    height: 28px;
+    font-size: 0.85em;
 }
 
-#altar-input-2 {
-    left: 52px;
-    top: 53.5px;
+/* Statue 입력 박스들 - 2개 가로 정렬 */
+.statue-inputs {
+    gap: 8px;
 }
 
-#altar-input-3 {
-    left: 72px;
-    top: 48.5px;
-}
-
-#altar-input-4 {
-    left: 97px;
-    top: 53.5px;
-}
-
-#altar-input-5 {
-    left: 121px;
-    top: 56.5px;
-}
-
-/* War Fort 입력 박스 */
-.warfort-input {
-    left: 88px;
-    top: 54.5px;
-}
-
-/* Statue of Carnage 입력 박스들 - 2개 */
-#statueofcarnage-input-1 {
-    left: 71px;
-    top: 55.5px;
-}
-
-#statueofcarnage-input-2 {
-    left: 100px;
-    top: 55.5px;
-}
-
-/* Statue of Guardian 입력 박스들 - 2개 */
-#statueofguardian-input-1 {
-    left: 70px;
-    top: 55.5px;
-}
-
-#statueofguardian-input-2 {
-    left: 99px;
-    top: 55.5px;
+.statue-inputs .level-input {
+    width: 45px;
+    height: 30px;
 }
 
 /* 결과 섹션 */
